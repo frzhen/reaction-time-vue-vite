@@ -7,7 +7,7 @@ npm install
 
 ### Compiles and hot-reloads for development
 ```
-npm run serve
+npm run dev
 ```
 
 ### Compiles and minifies for production
@@ -85,3 +85,32 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
    ```
 
+### Setup path resolving in vite (import @)
+[How to set up path resolving in vite](https://theroadtoenterprise.com/blog/how-to-set-up-path-resolving-in-vite)
+1. Add resolve alias with `__dirname` in the `vite.config.js` file:
+   ```js
+    import { defineConfig } from 'vite'
+    import vue from '@vitejs/plugin-vue'
+    import path from 'path'
+
+    export default defineConfig({
+        plugins: [vue()],
+        resolve: {
+            alias: {
+            '@': path.resolve(__dirname, './src'),
+            },
+        },
+    })
+   ```
+2. Create a new `jsconfig.js` file at the root of the project directory:
+   ```json
+    {
+      "compilerOptions": {
+         "baseUrl": ".",
+         "paths": {
+             "@/*": ["src/*"]
+         }
+      }
+    }
+   ```
+   Note: _without adding this file, the intellisense in editor or IDE will not work.
