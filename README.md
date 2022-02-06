@@ -37,6 +37,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
       - add `"@vitejs/plugin-vue": "^2.1.0"` in `devDepencencies` section
       - add `"vite": "^2.7.2"` in `devDepencencies` section
       - delete `node_modules` and `package-lock.json`
+      - delete `vue.config.js`, `babel.config.js` 
+        _vite.config.js will include what is in the vue.config.js, and vite package automatically include babel_
    2. run `npm install`
 3. add `vite.config.js` at root of the project directory
    - input the following code:
