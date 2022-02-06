@@ -28,7 +28,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
         "scripts": {
            "dev": "vite",
            "build": "vite build",
-           "lint": "vue-cli-service lint",
            "preview": "vite preview"
         },
         ```
